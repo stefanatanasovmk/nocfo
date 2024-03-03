@@ -61,7 +61,7 @@ export default function EventCard({
             <p style={$daysLeft}>
               {!isNaN(daysLeft)
                 ? daysLeft < 0
-                  ? `${Math.abs(daysLeft)} ago`
+                  ? `${Math.abs(daysLeft)} days ago`
                   : `${daysLeft} days left`
                 : ''}
             </p>
