@@ -1,17 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
+import EventCard from './components/EventCard'
+import useScreenSize from '../../utils/hooks/useScreenSize'
 
 export const Timeline = ({ items }) => {
-  // TODO: Replace me
-  return <StyledPlaceholder>your component here</StyledPlaceholder>
-}
+  const size = useScreenSize()
 
-const StyledPlaceholder = styled.div`
-  padding: 3rem 4rem;
-  border-radius: 1rem;
-  background: #1b98f511;
-  border: 3px dotted #1b98f5;
-  font-family: Nunito, sans-serif;
-  color: #1b98f5;
-  text-align: center;
-`
+  return items.map((item, index) => {
+    return (
+      <EventCard
+        key={item.description + index}
+        date={item.date}
+        priority={item.priority}
+        description={item.description}
+        cardWidth={size === 'sm' ? '100%' : '50%'}
+      />
+    )
+  })
+}
